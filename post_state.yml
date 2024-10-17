@@ -1,0 +1,14 @@
+- name: Check PostgreSQL service status
+  hosts: your_host
+  become: yes
+  tasks:
+    - name: Check if PostgreSQL service is running
+      systemd:
+        name: postgresql
+        state: started
+        enabled: yes
+      register: postgresql_service_status
+
+    - name: Display PostgreSQL service status
+      debug:
+        var: postgresql_service_status
