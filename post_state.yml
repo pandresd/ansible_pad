@@ -1,5 +1,5 @@
 - name: Check PostgreSQL service status
-  hosts: your_host
+  hosts: servidores
   become: yes
   tasks:
     - name: Check if PostgreSQL service is running
