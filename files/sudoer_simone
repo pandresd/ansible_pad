@@ -1,0 +1,2 @@
+#Usado por ansible
+simone ALL=(ALL) NOPASSWD: ALL
