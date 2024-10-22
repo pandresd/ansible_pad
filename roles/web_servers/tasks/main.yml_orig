@@ -19,11 +19,9 @@
       when: ansible_distribution == "Fedora"
       notify: restart_apache    
 
-    - name: copy html file for site
-      tags: apache
-      ansible.builtin.copy:
-        src: default_site.html
-        dest: /var/www/html/index.html
-        owner: root
-        group: root
-        mode: 0644
+    - name: restart apache
+      ansible.builtin.service:
+        name: "{{ apache_service }}"
+        state: restarted
+      when: apache.changed
+
